@@ -1,0 +1,7 @@
+---
+
+ - name: This playbook will demonstrate the use of role
+   hosts: all
+   become: yes
+   roles: 
+      - apache

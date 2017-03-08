@@ -1,0 +1,30 @@
+---
+- name: This playbook will demonstrate the use of docker container module in Ansible 
+  hosts: localhost 
+  vars:
+      docker_environment:
+        - DOCKER_HOST: 'tcp://localhost:4243'
+  tasks:
+    - name: "Start the Ubuntu docker container"
+      docker_container:
+        name: ubuntu
+        image: tektutor/ansible-nopassword
+        ports:
+          - "2000:22"
+      environment: "{{docker_environment}}"
+          
+    - name: "Start the CentOS docker container"
+      docker_container:
+        name: centos 
+        image: tektutor/centos-nopasswd
+        ports:
+          - "3000:22"
+      environment: "{{docker_environment}}"
+
+    - name: "Start the Ubuntu docker container"
+      docker_container:
+        name: ubuntu1604
+        image: auchida/ubuntu-sshd 
+        ports:
+          - "4000:22"
+      environment: "{{docker_environment}}"

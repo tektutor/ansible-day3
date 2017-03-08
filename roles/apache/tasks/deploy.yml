@@ -1,0 +1,10 @@
+---
+- name: Deploy index.html on Ubuntu apache home folder
+  template: src=index.html.j2 dest=/var/www/html/index.html
+  notify: restart apache on Ubuntu
+  when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+  
+- name: Deploy index.html on CentOS apache home folder
+  template: src=index.html.j2 dest=/var/www/html/index.html
+  notify: restart apache on Ubuntu
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"

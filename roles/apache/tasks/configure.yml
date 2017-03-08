@@ -1,0 +1,8 @@
+---
+- name: Configure apache on Ubuntu
+  file: src=apache2.conf dest=/etc/apache2/apache2.conf
+  when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+
+- name: Configure apache on CentOS 
+  file: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"

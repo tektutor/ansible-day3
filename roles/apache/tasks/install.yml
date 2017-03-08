@@ -1,0 +1,8 @@
+---
+- name: Install apache on Ubuntu
+  apt: name=apache2 state=latest update_cache=yes
+  when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+
+- name: Install apache on CentOS
+  yum: name=httpd state=latest update_cache=yes
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"

@@ -1,0 +1,8 @@
+172.17.0.2 ansible_host=localhost ansible_port=2000 ansible_user=tektutor 
+172.17.0.3 ansible_host=localhost ansible_port=3000 ansible_user=root
+
+[ubuntu]
+172.17.0.2 ansible_host=localhost ansible_port=2000 ansible_user=tektutor 
+
+[centos]
+172.17.0.3 ansible_host=localhost ansible_port=3000 ansible_user=root
